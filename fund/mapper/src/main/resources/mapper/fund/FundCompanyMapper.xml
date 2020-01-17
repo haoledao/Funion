@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fen.fund.mapper.fund.FundCompanyMapper">
+
+    <resultMap id="TABLE:fund_company" type="com.fen.fund.model.fund.FundCompany">
+        <id column="id" property="id" />
+        <result column="short_name" property="shortName" />
+        <result column="company_name" property="companyName" />
+        <result column="company_logo" property="companyLogo" />
+        <result column="company_url" property="companyUrl" />
+        <result column="company_memo" property="companyMemo" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <select id="getCompanies" resultMap="TABLE:fund_company" parameterType="com.fen.fund.model.fund.FundCompany">
+        SELECT * FROM fund_company
+         WHERE 1=1
+        <if test="companyName != null and companyName != ''">
+            AND company_name LIKE concat('%',#{companyName},'%')
+        </if>
+         ORDER BY id
+    </select>
+
+</mapper>

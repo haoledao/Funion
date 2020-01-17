@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no" name="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="referrer" content="no-referrer">
+    <meta name="data-spm" data-spm-protocol="i">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Demo</title>
+    <style type="text/css">
+        #mask {
+            width: 100%;
+            height: 640px;
+            background: rgba(28,37,41,0.6);
+            position: absolute;
+            top: 0;
+            z-index: 99;
+        }
+        #box {
+            width: 100px;
+            height: 20px;
+            background: rgba(255,255,255,0.9);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 4px;
+            z-index: 100;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body style="margin: 0;">
+    <iframe id="frm" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" width="100%"
+            height="600" src="https://m.so.com/">
+    </iframe>
+    <div id="mask" style="display: none">
+        <div id="box">
+            加载中…
+        </div>
+    </div>
+</body>
+<script>
+    function load() {
+        document.getElementById('mask').style.display = 'block';
+        setTimeout(function () {
+            window.location.reload();
+            document.getElementById('mask').style.display = 'none';
+        }, 2000);
+    }
+</script>
+</html>

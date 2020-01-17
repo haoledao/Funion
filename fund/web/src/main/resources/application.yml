@@ -1,0 +1,43 @@
+server:
+  port: 7890
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/fund?characterEncoding=UTF-8&serverTimezone=GMT%2B8&allowMutiQueries=true
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  profiles:
+    include: redis
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    cache: false
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+
+mybatis:
+  type-aliases-package: com.fen.fund.model
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true   # �����շ�ӳ��
+
+logging:
+  file:
+    name: log.log
+    path: E:/log
+  level:
+    com:
+      fen:
+        fund:
+          mapper: debug

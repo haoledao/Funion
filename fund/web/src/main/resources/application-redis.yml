@@ -1,0 +1,18 @@
+spring:
+  redis:
+    database: 0       # Redis数据库索引（默认0）
+    host: 127.0.0.1
+    password:
+    port: 6379
+    timeout: 3s       # 连接超时时间
+    jedis:
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1ms
+  session:
+    store-type: redis
+  aop:
+    proxy-target-class: true
+    auto: true

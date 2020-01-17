@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fen.fund.mapper.fund.FundIncomeMapper">
+
+    <resultMap id="TABLE:fund_income" type="com.fen.fund.model.fund.FundIncome">
+        <id column="id" property="id" />
+        <result column="fund_id" property="fundId" />
+        <result column="income_date" property="incomeDate" />
+        <result column="amount" property="amount" />
+        <result column="grow_value" property="growValue" />
+        <result column="grow_rate" property="growRate" />
+    </resultMap>
+
+    <select id="getIncomes" resultMap="TABLE:fund_income">
+        SELECT * FROM fund_income
+         ORDER BY income_date DESC
+    </select>
+
+</mapper>

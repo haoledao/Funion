@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fen.fund.mapper.sys.DictMapper">
+
+    <resultMap id="TABLE:dict" type="com.fen.fund.model.sys.Dict">
+        <id column="id" property="id" />
+        <result column="module" property="module" />
+        <result column="dict_type" property="dictType" />
+        <result column="dict_code" property="dictCode" />
+        <result column="dict_memo" property="dictMemo" />
+        <result column="active" property="active" />
+        <result column="order_no" property="orderNo" />
+    </resultMap>
+
+</mapper>
